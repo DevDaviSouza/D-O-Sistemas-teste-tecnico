@@ -7,7 +7,7 @@ export const CardDadosCarro = () => {
     const { setIdMarca, setIdModelo, setIdAno, listaMarcas, listaModelos, listaAnos, buscaFipe} = useFIpe()
     
   return (
-    <div className="flex flex-col bg-gray-500 p-7 w-full  rounded-2xl items-center justify-center gap-5 text-white">
+    <div className="flex flex-col bg-gray-100 p-7  rounded-2xl items-center justify-center gap-5 text-black shadow-2xl">
       <h1 className=" text-2xl font-bold">Encontre seu veículo:</h1>
 
       <form className="flex flex-col gap-7 w-full">
@@ -40,7 +40,7 @@ export const CardDadosCarro = () => {
           </label>
         </div>
 
-        <div className="flex w-full">
+        <div className="">
           <label className="flex flex-col">
             Ano:
             <select onChange={(e) => setIdAno(e.target.value)} className="bg-gray-300 text-black p-2 rounded " name="Ano">
