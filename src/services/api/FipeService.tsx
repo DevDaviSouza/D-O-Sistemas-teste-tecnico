@@ -1,9 +1,13 @@
 import ApiClient from "./ApiClient";
 
-export const veiculosTipo = (tipo: string) => ApiClient.get(`/${tipo}/brands`)
+export const marca = () => 
+  ApiClient.get(`/cars/brands`)
 
-export const modelos = (tipo: string, marca: string) => ApiClient.get(`/${tipo}/brands/${marca}/models`)
+export const modelos = ( marca: string) => 
+  ApiClient.get(`/cars/brands/${marca}/models`)
 
-export const anoModelo = (tipo: string, marca: string, modelo: string) => ApiClient.get(`/${tipo}/brands/${marca}/models/${modelo}/years`)
+export const anoModelo = ( marca: string, modelo: string) => 
+  ApiClient.get(`/cars/brands/${marca}/models/${modelo}/years`)
 
-export const infoFipe = (tipo: string, marca: string, modelo: string, ano: string) => ApiClient.get(`/${tipo}/brands/${marca}/models/${modelo}/years/${ano}`)
+export const infoFipe = ( marca: string, modelo: string, ano: string) => 
+  ApiClient.get(`/cars/brands/${marca}/models/${modelo}/years/${ano}`)

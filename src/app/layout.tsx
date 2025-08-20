@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "@/components/Header";
+import { FipeProvider } from "@/context/FipeContext";
 
 export default function RootLayout({
   children,
@@ -7,11 +8,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`antialiased`}>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <FipeProvider>
+      <html lang="pt-BR">
+        <body className={`antialiased`}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </FipeProvider>
+
   );
 }
