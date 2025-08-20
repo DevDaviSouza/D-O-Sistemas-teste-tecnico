@@ -1,5 +1,5 @@
-import { CardDadosCarro } from "@/components/CardDadosCarro";
-import CardFipe from "@/components/CardFipe";
+import { CardDadosCarro } from "@/components/cards/CardDadosCarro";
+import CardFipe from "@/components/cards/CardFipe";
 
 export default function Home() {
   return (

@@ -35,8 +35,6 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
   const [listaAnos, setListaAnos] = useState<ModeloVeiculo[]>([])
   const [infoVeiculo, setInfoVeiculo] = useState<IInfoFipe>(Object)
 
-
-
   useEffect(() => {
     buscaMarca()
   }, [])

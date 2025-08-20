@@ -3,7 +3,7 @@ export default interface IInfoFipe {
   price: string,
   brand: string,
   model: string,
-  modelYear: number,
+  modelYear: string,
   codeFipe: string,
   referenceMonth: string,
   fuelAcronym: string
