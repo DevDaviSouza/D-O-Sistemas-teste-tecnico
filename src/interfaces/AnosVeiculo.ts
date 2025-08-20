@@ -1,4 +1,4 @@
-export default interface AnosVeiculo {
+export default interface IAnosVeiculo {
   code: string,
   name: string
 }
