@@ -1,9 +1,11 @@
+//Passando a renderização para o lado do client para acessar funcionalidades React.
 "use client"
 
 import { useFIpe } from "@/context/FipeContext"
 
 export const CardDadosCarro = () => {
 
+  //Puxando funções e estados do contexto
     const { setIdMarca, setIdModelo, setIdAno, listaMarcas, listaModelos, listaAnos} = useFIpe()
     
   return (

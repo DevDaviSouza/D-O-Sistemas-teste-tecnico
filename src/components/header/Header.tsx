@@ -1,5 +1,5 @@
 import Image from "next/image"
-
+// Componente de cabecalho
 const Header = () => {
   return(
     <header className="bg-gray-900">

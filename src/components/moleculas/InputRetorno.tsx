@@ -1,8 +1,10 @@
+// Criação de tipo para parâmetros
 type InfoVeiculo = {
   label: string,
   content: string
 }
 
+// input utilizado no CardFipe para listagem de informações
 const InputRetorno = ({InfoVeiculo}: {InfoVeiculo: InfoVeiculo}) => {
   return(
     <label className="flex flex-col">

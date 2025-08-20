@@ -1,5 +1,6 @@
 import ApiClient from "./ApiClient";
 
+// Endpoints utilizados
 export const marca = () => 
   ApiClient.get(`/cars/brands`)
 

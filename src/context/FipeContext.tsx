@@ -1,5 +1,7 @@
+//Passando a renderização para o lado do client para acessar funcionalidades React.
 "use client";
 
+// Importando hooks react e interfaces
 import React, { createContext, useContext, useState, useEffect, Dispatch, SetStateAction } from "react"
 import { marca, modelos, anoModelo, infoFipe } from "@/services/api/FipeService";
 import MarcaVeiculo from "@/interfaces/MarcaVeiculo";
@@ -7,6 +9,7 @@ import ModeloVeiculo from "@/interfaces/ModeloVeiculo";
 import AnosVeiculo from "@/interfaces/AnosVeiculo";
 import IInfoFipe from "@/interfaces/InfoFipe";
 
+// Tipo criado para padronizar contexto
 type FipeContextType = {
   tipoVeiculo: string,
   setTipoVeiculo: Dispatch<SetStateAction<string>>,
@@ -23,6 +26,7 @@ type FipeContextType = {
   infoVeiculo: IInfoFipe,
 }
 
+// Criação do contexto
 const FipeContext = createContext<FipeContextType | undefined>(undefined)
 
 export function FipeProvider({children} : {children: React.ReactNode}) {
@@ -35,6 +39,7 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
   const [listaAnos, setListaAnos] = useState<ModeloVeiculo[]>([])
   const [infoVeiculo, setInfoVeiculo] = useState<IInfoFipe>(Object)
 
+  // useEffects
   useEffect(() => {
     buscaMarca()
   }, [])
@@ -59,6 +64,7 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
     
   }, [idAno])
 
+  // Funções de alteração de estado
   const buscaMarca = async () => {
     try{
       const response = await marca();
@@ -103,6 +109,7 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
   )
 }
 
+// Estância do contexto com tratativa de erro
 export const useFIpe = () => {
   const context = useContext(FipeContext);
 
