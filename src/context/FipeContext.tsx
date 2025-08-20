@@ -2,10 +2,10 @@
 
 import React, { createContext, useContext, useState, useEffect, Dispatch, SetStateAction } from "react"
 import { marca, modelos, anoModelo, infoFipe } from "@/services/api/FipeService";
-import MarcaVeiculo from "@/utils/MarcaVeiculo";
-import ModeloVeiculo from "@/utils/ModeloVeiculo";
-import AnosVeiculo from "@/utils/AnosVeiculo";
-import IInfoFipe from "@/utils/InfoFipe";
+import MarcaVeiculo from "@/interfaces/MarcaVeiculo";
+import ModeloVeiculo from "@/interfaces/ModeloVeiculo";
+import AnosVeiculo from "@/interfaces/AnosVeiculo";
+import IInfoFipe from "@/interfaces/InfoFipe";
 
 type FipeContextType = {
   tipoVeiculo: string,
