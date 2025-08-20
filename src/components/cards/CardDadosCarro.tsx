@@ -4,7 +4,7 @@ import { useFIpe } from "@/context/FipeContext"
 
 export const CardDadosCarro = () => {
 
-    const { setIdMarca, setIdModelo, setIdAno, listaMarcas, listaModelos, listaAnos, buscaFipe} = useFIpe()
+    const { setIdMarca, setIdModelo, setIdAno, listaMarcas, listaModelos, listaAnos} = useFIpe()
     
   return (
     <div className="flex flex-col bg-gray-100 p-7  rounded-2xl items-center justify-center gap-5 text-black shadow-2xl">
