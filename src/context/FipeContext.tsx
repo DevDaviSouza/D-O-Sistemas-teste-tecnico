@@ -44,7 +44,6 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
   useEffect(() => {
     if (idMarca) {
       buscaModelos()
-      console.log(listaModelos);
     }
   
   },[idMarca])
@@ -58,7 +57,6 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
   useEffect(() => {
     if (idAno) {
       buscaFipe()
-      console.log(infoVeiculo);
     }
     
   }, [idAno])
