@@ -1,4 +1,4 @@
-export default interface MarcaVeiculo {
+export default interface IMarcaVeiculo {
   code: string,
   name: string
 }

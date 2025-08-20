@@ -1,4 +1,4 @@
-export default interface ModeloVeiculo {
+export default interface IModeloVeiculo {
   code: string,
   name: string
 }

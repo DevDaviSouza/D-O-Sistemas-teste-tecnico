@@ -5,6 +5,7 @@ import { marca, modelos, anoModelo, infoFipe } from "@/services/api/FipeService"
 import MarcaVeiculo from "@/utils/MarcaVeiculo";
 import ModeloVeiculo from "@/utils/ModeloVeiculo";
 import AnosVeiculo from "@/utils/AnosVeiculo";
+import IInfoFipe from "@/utils/InfoFipe";
 
 type FipeContextType = {
   tipoVeiculo: string,
@@ -16,7 +17,10 @@ type FipeContextType = {
   setIdModelo: Dispatch<SetStateAction<string>>,
   listaModelos: ModeloVeiculo[],
   idAno: string,
-  listaAnos: AnosVeiculo[]
+  setIdAno: Dispatch<SetStateAction<string>>,
+  listaAnos: AnosVeiculo[],
+  buscaFipe: () => void,
+  infoVeiculo: IInfoFipe,
 }
 
 const FipeContext = createContext<FipeContextType | undefined>(undefined)
@@ -29,6 +33,9 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
   const [listaModelos, setListaModelos] = useState<ModeloVeiculo[]>([])
   const [idAno, setIdAno] = useState("")
   const [listaAnos, setListaAnos] = useState<ModeloVeiculo[]>([])
+  const [infoVeiculo, setInfoVeiculo] = useState<IInfoFipe>(Object)
+
+
 
   useEffect(() => {
     buscaMarca()
@@ -43,8 +50,18 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
   },[idMarca])
 
   useEffect(() => {
+    if(idModelo){
+      buscaAno()
+    }
+  }, [idModelo])
 
-  }, [])
+  useEffect(() => {
+    if (idAno) {
+      buscaFipe()
+      console.log(infoVeiculo);
+    }
+    
+  }, [idAno])
 
   const buscaMarca = async () => {
     try{
@@ -74,8 +91,17 @@ export function FipeProvider({children} : {children: React.ReactNode}) {
     }
   }
 
+  const buscaFipe = async () => {
+    try {
+      const response = await infoFipe(idMarca, idModelo, idAno)
+      setInfoVeiculo(response.data)
+    } catch (error) {
+      console.error("erro ao listar informações da fipe")
+    }
+  }
+
   return( 
-    <FipeContext.Provider value={{tipoVeiculo, setTipoVeiculo, idMarca, setIdMarca, listaMarcas, idModelo, setIdModelo, listaModelos, idAno, listaAnos}}>
+    <FipeContext.Provider value={{tipoVeiculo, setTipoVeiculo, idMarca, setIdMarca, listaMarcas, idModelo, setIdModelo, listaModelos, idAno, setIdAno, listaAnos, buscaFipe, infoVeiculo}}>
       {children}
     </FipeContext.Provider>
   )
